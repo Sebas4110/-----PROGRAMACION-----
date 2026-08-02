@@ -1,0 +1,7 @@
+sebas 4.3
+sebas = 4.2
+Ciro = 4.3
+Toro = 2.3
+Zapata = 1.8
+Saduva = 3.1416
+Lucho = 2.4165

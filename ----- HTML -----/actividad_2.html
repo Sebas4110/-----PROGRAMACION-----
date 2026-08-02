@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Antigua Grecia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --marble: #f5f0e8;
+        --parchment: #ede6d3;
+        --gold: #c9a84c;
+        --gold-light: #e8c97a;
+        --terracotta: #8b3a2a;
+        --deep-blue: #1a2744;
+        --aegean: #2e5180;
+        --text-dark: #2a1f14;
+        --text-mid: #5a4a35;
+        --border: #c9a84c55;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--marble);
+        background-image:
+          radial-gradient(ellipse at 20% 10%, #e8dfc855 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 90%, #d4c9a822 0%, transparent 50%),
+          url("data:image/svg+xml,%3Csvg width='400' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        color: var(--text-dark);
+        font-family: "Lora", serif;
+        line-height: 1.8;
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        background: linear-gradient(
+          160deg,
+          var(--deep-blue) 0%,
+          var(--aegean) 60%,
+          #1e3a5f 100%
+        );
+        color: #f5f0e8;
+        text-align: center;
+        padding: 80px 40px 100px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 30 Q15 0 30 30 Q45 60 60 30' fill='none' stroke='%23c9a84c22' stroke-width='1'/%3E%3C/svg%3E")
+          repeat;
+        opacity: 0.4;
+      }
+      .hero-ornament {
+        font-size: 1.2rem;
+        letter-spacing: 8px;
+        color: var(--gold);
+        margin-bottom: 16px;
+        font-family: "Cinzel", serif;
+        opacity: 0.85;
+      }
+      .hero h1 {
+        font-family: "Cinzel Decorative", serif;
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 20px #00000055;
+        position: relative;
+      }
+      .hero h1 span {
+        color: var(--gold-light);
+      }
+      .hero-divider {
+        width: 180px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        margin: 20px auto;
+      }
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.88;
+        font-style: italic;
+      }
+
+      /* ─── NAV ─── */
+      nav {
+        background: var(--deep-blue);
+        border-top: 2px solid var(--gold);
+        border-bottom: 2px solid var(--gold);
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      nav a {
+        color: var(--gold-light);
+        text-decoration: none;
+        padding: 14px 28px;
+        font-family: "Cinzel", serif;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      nav a:hover {
+        background: var(--gold);
+        color: var(--deep-blue);
+      }
+
+      /* ─── LAYOUT ─── */
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+      section:nth-child(even) {
+        background: var(--parchment);
+      }
+
+      .section-label {
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem;
+        letter-spacing: 5px;
+        color: var(--gold);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .section-title {
+        font-family: "Cinzel Decorative", serif;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        color: var(--deep-blue);
+        margin-bottom: 6px;
+      }
+      .section-rule {
+        width: 60px;
+        height: 3px;
+        background: var(--gold);
+        margin-bottom: 32px;
+      }
+
+      /* ─── INTRO BLOCK ─── */
+      .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+      .intro-grid img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 4px;
+        box-shadow: 8px 8px 0 var(--gold);
+        border: 1px solid var(--border);
+      }
+      .intro-text p {
+        color: var(--text-mid);
+        margin-bottom: 16px;
+      }
+
+      /* ─── CARACTERÍSTICAS ─── */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 28px;
+      }
+      .card {
+        background: white;
+        border-top: 4px solid var(--gold);
+        border-radius: 2px;
+        padding: 32px 26px;
+        box-shadow: 0 4px 24px #00000010;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px #00000018;
+      }
+      .card-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+      }
+      .card h4 {
+        font-family: "Cinzel", serif;
+        font-size: 0.95rem;
+        color: var(--terracotta);
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+      .card p {
+        font-size: 0.93rem;
+        color: var(--text-mid);
+        line-height: 1.7;
+      }
+
+      /* ─── GALERÍA ─── */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 3px;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s;
+        border: 1px solid var(--border);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.06);
+      }
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, #00000099);
+        color: #f5f0e8;
+        font-family: "Cinzel", serif;
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        padding: 24px 14px 12px;
+        text-align: center;
+      }
+
+      /* ─── TABLA ─── */
+      .table-wrap {
+        overflow-x: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      thead {
+        background: var(--deep-blue);
+        color: var(--gold-light);
+        font-family: "Cinzel", serif;
+        letter-spacing: 1px;
+        font-size: 0.78rem;
+      }
+      th,
+      td {
+        padding: 14px 20px;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+      tbody tr:nth-child(even) {
+        background: #f0ead855;
+      }
+      tbody tr:hover {
+        background: #e8dfc8;
+      }
+      td:first-child {
+        font-family: "Cinzel", serif;
+        color: var(--terracotta);
+        font-size: 0.85rem;
+      }
+
+      /* ─── VIDEO ─── */
+      .video-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .video-embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 16px 48px #00000030;
+        border: 2px solid var(--gold);
+      }
+      .video-embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      .video-caption {
+        margin-top: 18px;
+        font-style: italic;
+        color: var(--text-mid);
+        font-size: 0.92rem;
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        background: var(--deep-blue);
+        color: #a8b8cc;
+        text-align: center;
+        padding: 40px 20px;
+        font-family: "Cinzel", serif;
+        font-size: 0.78rem;
+        letter-spacing: 2px;
+      }
+      footer span {
+        color: var(--gold);
+      }
+
+      /* ─── RESPONSIVE ─── */
+      @media (max-width: 700px) {
+        .intro-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        nav a {
+          padding: 12px 14px;
+          font-size: 0.68rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-ornament">✦ &nbsp; Civilización Clásica &nbsp; ✦</div>
+      <h1>La <span>Antigua</span> Grecia</h1>
+      <div class="hero-divider"></div>
+      <p>
+        Cuna de la democracia, la filosofía y el arte occidental. Un viaje al
+        período que transformó para siempre la historia de la humanidad.
+      </p>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#historia">Historia</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#galeria">Galería</a>
+      <a href="#tabla">Ciudades</a>
+      <a href="#video">Video</a>
+    </nav>
+
+    <!-- ── HISTORIA ── -->
+    <section id="historia">
+      <div class="container">
+        <div class="intro-grid">
+          <div>
+            <img
+              src="https://concepto.de/wp-content/uploads/2024/04/cultura-griega.jpg"
+              alt="Cultura griega antigua"
+            />
+          </div>
+          <div class="intro-text">
+            <div class="section-label">§ Contexto histórico</div>
+            <h2 class="section-title">¿Qué fue la Antigua Grecia?</h2>
+            <div class="section-rule"></div>
+            <p>
+              La civilización griega antigua abarcó desde el fin de la
+              civilización micénica (c. 1200 a.C.) hasta la muerte de Alejandro
+              Magno en el 323 a.C. Durante este extenso período surgieron logros
+              políticos, filosóficos, artísticos y científicos que moldearon
+              toda la historia posterior de Occidente.
+            </p>
+            <p>
+              El período más amplio, conocido como
+              <strong>Antigüedad Clásica</strong>, se extiende desde Homero en
+              el siglo VIII a.C. hasta la caída del Imperio Romano en el siglo V
+              d.C. En este tiempo, la cultura grecorromana ejerció una
+              influencia determinante en el Mediterráneo, sentando las bases del
+              derecho, la arquitectura, la lengua, la retórica, la política y la
+              filosofía.
+            </p>
+            <p>
+              Grecia no fue un Estado unificado, sino una constelación de
+              <em>polis</em> (ciudades-Estado) que compartían lengua, religión y
+              valores culturales, pero mantenían autonomía política e, incluso,
+              rivalizaban entre sí.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CARACTERÍSTICAS ── -->
+    <section id="caracteristicas">
+      <div class="container">
+        <div class="section-label">§ Pilares de una civilización</div>
+        <h2 class="section-title">Características Principales</h2>
+        <div class="section-rule"></div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🏛️</div>
+            <h4>La Polis</h4>
+            <p>
+              Las ciudades-Estado o <em>polis</em> eran la unidad política
+              fundamental. Cada una poseía su propio gobierno, leyes y
+              tradiciones. Las más importantes fueron Atenas —cuna de la
+              democracia—, Esparta —modelo militar—, Corinto, Mileto y Tebas.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h4>Politeísmo</h4>
+            <p>
+              Los griegos adoraban a numerosas divinidades con forma humana,
+              pasiones y defectos propios. Los dioses habitaban el Monte Olimpo
+              y gobernaban aspectos concretos de la naturaleza y la vida humana:
+              Zeus, Atenea, Poseidón, Apolo y Artemisa, entre otros.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <h4>Filosofía</h4>
+            <p>
+              Grecia inventó el pensamiento racional y sistemático. Tales de
+              Mileto, Heráclito, Sócrates, Platón y Aristóteles se preguntaron
+              por el origen del universo, la naturaleza del conocimiento, la
+              ética y la política, estableciendo categorías que persisten hasta
+              hoy.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🎭</div>
+            <h4>Arte y Belleza</h4>
+            <p>
+              El ideal estético griego se fundaba en el equilibrio, la
+              proporción y la armonía. Levantaron templos de mármol como el
+              Partenón, esculpieron cuerpos humanos perfectos y crearon el
+              teatro trágico y cómico como formas de reflexión colectiva.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⚖️</div>
+            <h4>Democracia</h4>
+            <p>
+              Atenas desarrolló en el siglo V a.C. el primer sistema democrático
+              de la historia, bajo líderes como Clístenes y Pericles. Aunque
+              limitada a los ciudadanos libres varones, fue un modelo político
+              revolucionario que inspiró toda la teoría política posterior.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏅</div>
+            <h4>Juegos Olímpicos</h4>
+            <p>
+              Celebrados desde el 776 a.C. en honor a Zeus, los Juegos Olímpicos
+              reunían a atletas de todas las <em>polis</em> cada cuatro años en
+              Olimpia. Representaban una tregua sagrada (ekecheiria) entre las
+              ciudades y el ideal de excelencia física y espiritual.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── GALERÍA ── -->
+    <section id="galeria">
+      <div class="container">
+        <div class="section-label">§ Patrimonio visual</div>
+        <h2 class="section-title">Galería</h2>
+        <div class="section-rule"></div>
+        <div class="gallery">
+          <div class="gallery-item">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/d/da/The_Parthenon_in_Athens.jpg"
+              alt="Partenón de Atenas"
+            />
+            <div class="gallery-caption">El Partenón · Atenas</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://www.grunge.com/img/gallery/the-untold-truth-of-the-statue-of-zeus-at-olympia/l-intro-1654683410.jpg"
+              alt="Zeus de Olimpia"
+            />
+            <div class="gallery-caption">Zeus · Dios del Olimpo</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5a300a59f09ca48801b93fb3/1514647055985-J5VW5IEH7XDLRI2K1NTO/detail-achilles-and-ajax.jpg"
+              alt="Cerámica griega"
+            />
+            <div class="gallery-caption">Cerámica griega clásica</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://lh4.googleusercontent.com/proxy/5fshsBU70mRF51aZXpgbF01_ifqALRnjV5ZF7lM2fYAZUGjx4Gpygr2d9S9fd6K6t9FJLP2CRubP-veQ3S99BQ6MefSZA4KJGUagBqOxEqRbs94uJ-N456H8RfN3ndqGXrsbKvUgo3zQtNWTubi6K0QORXyApyxi9Cq80Q6pIZOVCAtmVC6PaHJCSvlaSlIIHFpBtFmknhxu2bQ"
+              alt="Aristóteles"
+            />
+            <div class="gallery-caption">Aristóteles · Filósofo</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://whyathens.com/wp-content/uploads/2017/06/Ancient-Epidaurus-Theatre-Programme-Tickets.jpg"
+              alt="Teatro de Epidauro"
+            />
+            <div class="gallery-caption">Teatro de Epidauro</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://cdn.finestresullarte.info/rivista/immagini/2023/fn/discobolo-lancellotti-dettaglio.jpg"
+              alt="Discóbolo"
+            />
+            <div class="gallery-caption">El Discóbolo · Ideal atlético</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TABLA ── -->
+    <section id="tabla">
+      <div class="container">
+        <div class="section-label">§ Las grandes ciudades-Estado</div>
+        <h2 class="section-title">Principales Polis Griegas</h2>
+        <div class="section-rule"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ciudad-Estado</th>
+                <th>Región</th>
+                <th>Tipo de gobierno</th>
+                <th>Aporte principal</th>
+                <th>Período de apogeo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Atenas</td>
+                <td>Ática</td>
+                <td>Democracia</td>
+                <td>Filosofía, teatro, democracia</td>
+                <td>Siglo V a.C.</td>
+              </tr>
+              <tr>
+                <td>Esparta</td>
+                <td>Laconia (Peloponeso)</td>
+                <td>Oligarquía militar (diarquía)</td>
+                <td>Arte militar, disciplina cívica</td>
+                <td>Siglos VI–IV a.C.</td>
+              </tr>
+              <tr>
+                <td>Corinto</td>
+                <td>Istmo de Corinto</td>
+                <td>Oligarquía / Tiranía</td>
+                <td>Comercio marítimo, cerámica</td>
+                <td>Siglos VIII–V a.C.</td>
+              </tr>
+              <tr>
+                <td>Mileto</td>
+                <td>Jonia (Asia Menor)</td>
+                <td>Aristocracia / Tiranía</td>
+                <td>Filosofía presocrática, ciencia</td>
+                <td>Siglos VII–VI a.C.</td>
+              </tr>
+              <tr>
+                <td>Tebas</td>
+                <td>Beocia</td>
+                <td>Oligarquía / Hegemonía</td>
+                <td>Hegemonía militar (s. IV a.C.)</td>
+                <td>Siglo IV a.C.</td>
+              </tr>
+              <tr>
+                <td>Siracusa</td>
+                <td>Sicilia</td>
+                <td>Tiranía / República</td>
+                <td>Centro cultural en Magna Grecia</td>
+                <td>Siglos V–III a.C.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── VIDEO ── -->
+    <section id="video">
+      <div class="container">
+        <div class="section-label">§ Para saber más</div>
+        <h2 class="section-title">Documental en Video</h2>
+        <div class="section-rule"></div>
+        <div class="video-wrap">
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/8o-xZN9ZFXI"
+              title="Documental Antigua Grecia"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <p class="video-caption">
+            ▶ Documental completo sobre la civilización griega antigua —
+            historia, cultura y legado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        ✦ &nbsp; <span>La Antigua Grecia</span> &nbsp; · &nbsp; Actividad
+        educativa &nbsp; ✦
+      </p>
+    </footer>
+  </body>
+</html>

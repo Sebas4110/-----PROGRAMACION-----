@@ -1,0 +1,57 @@
+git funciona con commits, cada que se usa un archivo se guarda una "captura" de lo hecho.
+se suben archivos con "push"
+existen ramas que se llaman "branch"
+y se puede volver a mezclar con un "merge"
+git guarda cada cambio con fecha, autor y mensaje
+
+==== Comandos basicos ====
+git add "archivo": sirve para agregar el archivo al que se le hizo cambios y va para el guardado
+git restore: devolver lo dicho anteriormente
+git push: mandar lo hecho a GitHub
+git pull: traer algo de GitHub
+git clone URL : traer una copia de github
+
+la primera vez, para cargar los archivos de github es necesario el "clone"
+despues, con solo un "pull" me los traera actualizado
+
+==== Configuración inicial (una sola vez) ====
+
+git config --global user.name "Tu nombre" : le dices a Git quién eres
+git config --global user.email "tu@email.com" : tu email para los commits
+git init : convierte una carpeta en un repo de Git
+git clone URL : descarga un repo existente de GitHub a tu máquina
+
+==== dia a dia ====
+
+git status : ves qué archivos cambiaste. Lo vas a usar todo el tiempo
+git add archivo.js : metes un archivo al carrito (staging)
+git add . : metes todos los cambios al carrito
+git commit -m "mensaje" : guardas la instantánea con un mensaje descriptivo
+git push origin main : subes tus commits a GitHub
+git pull : bajas los cambios que otros subieron
+
+==== Ramas (branches) ====
+
+git branch — ves todas las ramas
+git checkout -b nombre-rama — creas y te cambias a una rama nueva
+git checkout main — vuelves a la rama principal
+git merge nombre-rama — fusionas una rama con la actual
+
+==== Ver el historial ====
+
+git log — ves todos los commits (fecha, autor, mensaje)
+git log --oneline — versión resumida, una línea por commit
+git diff — ves exactamente qué líneas cambiaron
+
+==== Deshacer cosas (el área donde más te salvarás) ====
+
+git restore archivo.js — deshaces cambios en un archivo antes de hacer add
+git reset HEAD~1 — deshaces el último commit pero conservas los cambios
+git revert ID-commit — crea un commit nuevo que deshace uno anterior (más seguro en equipos)
+
+
+
+cerrar sesion en la tecnica (version git 2.51.windows.1) en BASH:
+  printf "protocol=https\nhost=github.com\n" | git credential-manager erase
+
+  git credential-manager github login

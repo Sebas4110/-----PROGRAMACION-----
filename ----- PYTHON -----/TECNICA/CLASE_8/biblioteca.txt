@@ -1,0 +1,32 @@
+NOMBRE DEL POEMA: hola
+NOMBRE DEL AUTOR: sebas
+
+habia una ves-trus
+FIN
+------------------------------------
+NOMBRE DEL POEMA: dgh
+NOMBRE DEL AUTOR: dfgfd
+
+gdf
+gdfg
+dfgdf
+gdfg
+dfgdfg
+dgdfin
+FIN
+------------------------------------
+NOMBRE DEL POEMA: ggdfgdgdg
+NOMBRE DEL AUTOR: dgdgdgdg
+
+dgdgdg
+dgdgdg
+dgdgd
+gdggd
+gdgdgd
+gdgdg
+dgd
+gdg
+dg
+dgdg
+FIN
+------------------------------------
