@@ -1,6 +1,6 @@
 package CLASE_3;
 
-public class arrays {
+public class arreglos {
 public static void main(String[] args) {
     int [] numeros = new int[3];
     numeros[0] = 10;
