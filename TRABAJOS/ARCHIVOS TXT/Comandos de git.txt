@@ -29,6 +29,8 @@ git add . : metes todos los cambios al carrito
 git commit -m "mensaje" : guardas la instantánea con un mensaje descriptivo
 git push origin main : subes tus commits a GitHub
 git pull : bajas los cambios que otros subieron
+git  mv : cambia  la  ubicacion  de la  carpeta/archivo (se coloca primero la 
+ubicacion  actual y  despues el destinatario)(ejm: git mv CLASE_6 JAVA/CLASE_6)
 
 ==== Ramas (branches) ====
 
